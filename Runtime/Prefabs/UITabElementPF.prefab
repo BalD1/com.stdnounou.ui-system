@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &532874349394079333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 532874349394079332}
+  - component: {fileID: 3889082977896065748}
+  - component: {fileID: 532874349394079334}
+  - component: {fileID: 532874349394079328}
+  - component: {fileID: 5147334365947757445}
+  m_Layer: 5
+  m_Name: UITabElementPF
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &532874349394079332
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532874349394079333}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3889082977896065748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532874349394079333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a75606a1589b7994c9589347a092a1b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <SequencePlayer>k__BackingField: {fileID: 532874349394079334}
+--- !u!114 &532874349394079334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532874349394079333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d37368e34580c04eaf79babca1edb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PlaybackSpeed>k__BackingField: 1
+  <State>k__BackingField: 2
+  <AfterStopState>k__BackingField: 2
+  <IsReversed>k__BackingField: 0
+  <LoopType>k__BackingField: 0
+  <LoopCount>k__BackingField: -1
+  <PlayAtStart>k__BackingField: 0
+  <TweensSequence>k__BackingField:
+  - editorName: Fade
+    <TweensData>k__BackingField:
+    - editorName: Alpha
+      <TweenPlayer>k__BackingField: {fileID: 11400000, guid: 793f15508cbbd5c45b6916d2f2c41e9e, type: 2}
+      <Target>k__BackingField: {fileID: 532874349394079332}
+      <ForwardLeanType>k__BackingField: 16
+      <ReversedLeanType>k__BackingField: 16
+      <Modifiers>k__BackingField:
+        <OriginModifier>k__BackingField: 1
+        <GoalModifier>k__BackingField: 1
+        <DurationModifier>k__BackingField: 0.25
+    - editorName: Slide
+      <TweenPlayer>k__BackingField: {fileID: 11400000, guid: fcdb02a16b8bad04589c7913f7d6a5fa, type: 2}
+      <Target>k__BackingField: {fileID: 532874349394079332}
+      <ForwardLeanType>k__BackingField: 16
+      <ReversedLeanType>k__BackingField: 16
+      <Modifiers>k__BackingField:
+        <OriginModifier>k__BackingField: 1
+        <GoalModifier>k__BackingField: 1
+        <DurationModifier>k__BackingField: 0.25
+  currentFinishedPlayers: 0
+  currentTweenIndex: 0
+--- !u!225 &532874349394079328
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532874349394079333}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &5147334365947757445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532874349394079333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a881c18bd66044548b14703bc04aa6ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Target>k__BackingField: {fileID: 532874349394079328}
+  stateWhenVisible:
+    <Interactable>k__BackingField: 1
+    <RaycastTarget>k__BackingField: 1
+    <IgnoreParentGroups>k__BackingField: 0
+  stateWhenInvisible:
+    <Interactable>k__BackingField: 0
+    <RaycastTarget>k__BackingField: 0
+    <IgnoreParentGroups>k__BackingField: 0
