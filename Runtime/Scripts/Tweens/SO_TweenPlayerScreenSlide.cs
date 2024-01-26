@@ -4,7 +4,7 @@ using StdNounou.Core;
 
 namespace StdNounou.UI
 {
-    [CreateAssetMenu(fileName = "NewTweenScreenSlidePlayer", menuName = "Scriptable/Tweens/ScreenSlide Player")]
+    [CreateAssetMenu(fileName = "NewTweenScreenSlidePlayer", menuName = "StdNounou/Scriptables/Tweens/ScreenSlide Player", order = 100)]
     public class SO_TweenPlayerScreenSlide : SO_TweenPlayerBase
     {
         [SerializeField] private Vector2 screenSizeMultiplier = Vector2.one;

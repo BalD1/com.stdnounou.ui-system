@@ -1,6 +1,6 @@
 {
   "name": "com.stdnounou.ui-system",
-  "version": "1.1.0",
+  "version": "1.0.2",
   "displayName": "StdNounou UI System",
   "description": "This is our own personal unity ui system.",
   "unity": "2021.3",

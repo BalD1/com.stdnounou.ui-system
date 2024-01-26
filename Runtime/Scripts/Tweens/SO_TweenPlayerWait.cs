@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace StdNounou.UI
 {
-    [CreateAssetMenu(fileName = "NewTweenDelayPlayer", menuName = "Scriptable/Tweens/Delay Player")]
+    [CreateAssetMenu(fileName = "NewTweenDelayPlayer", menuName = "StdNounou/Scriptables/Tweens/Delay Player", order = 100)]
     public class SO_TweenPlayerWait : SO_TweenPlayerBase
     {
         public override void ProcessTween(bool isReversed, TweenSequencePlayer.S_TweenData data, float playbackSpeed, Action OnEnd, GameObject leanTargetObj, out LTDescr tween)

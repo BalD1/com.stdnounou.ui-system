@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace StdNounou.UI
 {
-[CreateAssetMenu(fileName = "NewTweenScalePlayer", menuName = "Scriptable/Tweens/Scale Player")]
+[CreateAssetMenu(fileName = "NewTweenScalePlayer", menuName = "StdNounou/Scriptables/Tweens/Scale Player", order = 100)]
     public class SO_TweenPlayerScale : SO_TweenPlayerBase
     {
         [field: SerializeField] public Vector2 OriginScale = Vector2.one;

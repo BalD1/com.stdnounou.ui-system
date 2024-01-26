@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace StdNounou.UI
 {
-    [CreateAssetMenu(fileName = "NewTweenAlphaPlayer", menuName = "Scriptable/Tweens/Alpha Player")]
+    [CreateAssetMenu(fileName = "NewTweenAlphaPlayer", menuName = "StdNounou/Scriptables/Tweens/Alpha Player", order = 100)]
     public class SO_TweenPlayerAlpha : SO_TweenPlayerBase
     {
         [field: SerializeField] public float OriginAlpha = 0;

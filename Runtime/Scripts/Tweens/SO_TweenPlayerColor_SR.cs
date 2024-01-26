@@ -4,7 +4,7 @@ using StdNounou.Core;
 
 namespace StdNounou.UI
 {
-    [CreateAssetMenu(fileName = "New Tween Color Player", menuName = "Scriptable/Tweens/Color Player")]
+    [CreateAssetMenu(fileName = "New Tween Color Player", menuName = "StdNounou/Scriptables/Tweens/Color Player", order = 100)]
     public class SO_TweenPlayerColor_SR : SO_TweenPlayerBase
     {
         [field: SerializeField] public Color OriginColor { get; private set; } = Color.white;
