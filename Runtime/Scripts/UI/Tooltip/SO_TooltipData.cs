@@ -7,5 +7,6 @@ namespace StdNounou.UI
 	{
 		[field: SerializeField] public string Header { get; private set; } = "";
 		[field: SerializeField] public string Content { get; private set; } = "";
-	} 
+        [field: SerializeField] public float DelayBeforeShow { get; private set; } = .5f;
+    }
 }

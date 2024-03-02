@@ -16,9 +16,14 @@ namespace StdNounou.UI
         [SerializeField] private RectTransform rt;
         [SerializeField] private CanvasGroup cg;
 
+        [SerializeField] private GameObject closeBtn;
+
         [SerializeField] private TweenSequencePlayer tweenPlayer;
 
-        public void SetText(SO_TooltipData tooltipData)
+        private bool isStatic = false;
+        private bool canDestroy = false;
+
+        public Tooltip Setup(SO_TooltipData tooltipData)
         {
             if (string.IsNullOrEmpty(tooltipData.Header))
                 headerField.gameObject.SetActive(false);
@@ -30,16 +35,49 @@ namespace StdNounou.UI
 
             contentField.text = tooltipData.Content;
             ValidateLayoutElement();
+
+            Vector2 pos = Input.mousePosition;
+
+            float pivotX = pos.x / Screen.width;
+            float pivotY = pos.y / Screen.height;
+
+            rt.pivot.Set(pivotX, pivotY);
+            this.transform.position = pos;
+            tweenPlayer.OnSequenceEnded += TryDestroy;
+            this.Show();
+            return this;
         }
 
         public void Show()
         {
-            tweenPlayer.TryPlayForward(IEffectPlayer.E_StartAndStopBehaviour.Stay, true);
+            tweenPlayer.TryPlayForward(IEffectPlayer.E_StartAndStopBehaviour.SetAtStart, true);
         }
 
+        public void TryHide()
+        {
+            if (isStatic) return;
+            Hide();
+        }
         public void Hide()
         {
             tweenPlayer.TryPlayReverse(IEffectPlayer.E_StartAndStopBehaviour.Stay, true);
+        }
+
+        public void TryDestroy()
+        {
+            if (!canDestroy)
+            {
+                canDestroy = true;
+                return;
+            }
+            Destroy(this.gameObject);
+        }
+
+        public void SetAsStatic()
+        {
+            isStatic = true;
+            closeBtn.SetActive(true);
+            cg.interactable = cg.blocksRaycasts = true;
         }
 
         private void ValidateLayoutElement()
@@ -50,22 +88,11 @@ namespace StdNounou.UI
             layoutElement.enabled = (headerLength > characterWrapLimit || contentLength > characterWrapLimit);
         }
 
+#if UNITY_EDITOR
         private void Update()
         {
             ValidateLayoutElement();
-            SetToMousePosition();
-        } 
-
-        private void SetToMousePosition()
-        {
-            if (cg.alpha == 0) return;
-            Vector2 pos = Input.mousePosition;
-
-            float pivotX = pos.x / Screen.width;
-            float pivotY = pos.y / Screen.height;
-
-            rt.pivot.Set(pivotX, pivotY);
-            this.transform.position = pos;
         }
+#endif
     }
 }

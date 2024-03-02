@@ -6,11 +6,21 @@ namespace StdNounou.UI
 {
     public class TooltipManager : PersistentSingleton<TooltipManager>
     {
-        [SerializeField] private Tooltip tooltip;
+        [SerializeField] private Tooltip tooltipPF;
 
-        [SerializeField] private float delayBeforeShow = .5f;
+        [SerializeField] private Canvas targetCanvas;
 
-        private LTDescr showDelayTween;
+        protected override void EventsSubscriber()
+        {
+            base.EventsSubscriber();
+            TooltipTriggerEvents.OnTooltipStartHover += CreateTooltip;
+        }
+
+        protected override void EventsUnSubscriber()
+        {
+            base.EventsUnSubscriber();
+            TooltipTriggerEvents.OnTooltipStartHover -= CreateTooltip;
+        }
 
         protected override void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
@@ -20,22 +30,10 @@ namespace StdNounou.UI
         {
         }
 
-        public void Show(SO_TooltipData tooltipData)
+        public void CreateTooltip(TooltipTrigger tooltipTrigger)
         {
-            if (showDelayTween != null)
-                LeanTween.cancel(showDelayTween.uniqueId);
-            showDelayTween = LeanTween.delayedCall(delayBeforeShow, () =>
-            {
-                tooltip.SetText(tooltipData);
-                tooltip.Show();
-            });
-        }
-
-        public void Hide()
-        {
-            if (showDelayTween != null)
-                LeanTween.cancel(showDelayTween.uniqueId);
-            tooltip.Hide();
+            Tooltip result = tooltipPF.Create(targetCanvas.transform).Setup(tooltipTrigger.TooltipData);
+            tooltipTrigger.SetRelatedTooltip(result);
         }
     } 
 }

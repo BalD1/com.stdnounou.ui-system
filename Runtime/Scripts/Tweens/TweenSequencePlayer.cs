@@ -271,7 +271,7 @@ namespace StdNounou.UI
             foreach (var data in currentSequence)
             {
                 LTDescr tween = null;
-                data.TweenPlayer.ProcessTween(IsReversed, data, PlaybackSpeed, OnSingleTweenEnded, this.gameObject, out tween);
+                data.TweenPlayer?.ProcessTween(IsReversed, data, PlaybackSpeed, OnSingleTweenEnded, this.gameObject, out tween);
                 if (tween != null) currentTweens.Add(tween);
             }
         }
