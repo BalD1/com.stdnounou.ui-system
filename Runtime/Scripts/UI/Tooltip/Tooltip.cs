@@ -16,7 +16,7 @@ namespace StdNounou.UI
         [SerializeField] private RectTransform rt;
         [SerializeField] private CanvasGroup cg;
 
-        [SerializeField] private GameObject closeBtn;
+        [SerializeField] private GameObject headbar;
 
         [SerializeField] private TweenSequencePlayer tweenPlayer;
 
@@ -60,6 +60,7 @@ namespace StdNounou.UI
         }
         public void Hide()
         {
+            canDestroy = true;
             tweenPlayer.TryPlayReverse(IEffectPlayer.E_StartAndStopBehaviour.Stay, true);
         }
 
@@ -67,6 +68,8 @@ namespace StdNounou.UI
         {
             if (!canDestroy)
             {
+                if (isStatic)
+                    cg.interactable = cg.blocksRaycasts = true;
                 canDestroy = true;
                 return;
             }
@@ -76,7 +79,7 @@ namespace StdNounou.UI
         public void SetAsStatic()
         {
             isStatic = true;
-            closeBtn.SetActive(true);
+            headbar.SetActive(true);
             cg.interactable = cg.blocksRaycasts = true;
         }
 
