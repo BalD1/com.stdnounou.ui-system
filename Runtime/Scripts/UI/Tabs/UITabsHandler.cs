@@ -31,9 +31,8 @@ namespace StdNounou.UI
                 ScreenParent.OnStateChanged -= OnParentStateChanged;
         }
 
-        protected override void Awake()
+        protected virtual void Awake()
         {
-            base.Awake();
             SetupArray();
         }
 

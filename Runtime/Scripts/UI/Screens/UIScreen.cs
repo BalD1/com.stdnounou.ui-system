@@ -72,9 +72,8 @@ namespace StdNounou.UI
             }
         }
 
-        protected override void Awake()
+        protected virtual void Awake()
         {
-            base.Awake();
             OpenedSubscreens = new List<UISubScreen>();
         }
 
